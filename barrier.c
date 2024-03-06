@@ -44,7 +44,7 @@ void reusable_barrier_checkin(reusable_barrier_t * self)
     }
     else {
         self->num_entered = 0;
-        pthread_cond_broadcast(&self->all_leaving);
+        pthread_cond_broadcast(&self->all_leaving); // Broadcast to all threads that they can leave
     }
 
     pthread_mutex_unlock(&self->lock);
